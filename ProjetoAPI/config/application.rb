@@ -39,13 +39,16 @@ module ProjetoAPI
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        oirgins '*'
-        resource '*'
-          headers: :any
+        origins '*'
+        resource '*',
+          headers: :any,
           methods: %i(get post put patch delete options head)
       end
     end
-
-    config.middleware.use Rack::Attack
   end
 end
+
+
+
+
+    config.middleware.use Rack::Attack
